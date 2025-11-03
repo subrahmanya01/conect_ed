@@ -8,37 +8,31 @@ import { MainModule } from './main/main.module';
 import { ProfileModule } from './profile/profile.module';
 import { SharedModule } from './shared/shared.module';
 import { ChatModule } from './chat/chat.module';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { AddQuestionComponent } from './pages/add-question/add-question.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-@NgModule({
-  declarations: [
-    AppComponent,
-    LandingPageComponent,
-    AddQuestionComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    AuthModule,
-    MainModule,
-    ProfileModule,
-    SharedModule,
-    ChatModule,
-    AppRoutingModule,
-    CommonModule,
-    ReactiveFormsModule,
-    FormsModule
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true
-    }
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        LandingPageComponent,
+        AddQuestionComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        AuthModule,
+        MainModule,
+        ProfileModule,
+        SharedModule,
+        ChatModule,
+        AppRoutingModule,
+        CommonModule,
+        ReactiveFormsModule,
+        FormsModule], providers: [
+        {
+            provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true
+        },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
