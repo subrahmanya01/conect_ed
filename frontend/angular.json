@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "linked-in-reva-frontend:build:production"
+              "buildTarget": "linked-in-reva-frontend:build:production"
             },
             "development": {
-              "browserTarget": "linked-in-reva-frontend:build:development"
+              "buildTarget": "linked-in-reva-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "linked-in-reva-frontend:build"
+            "buildTarget": "linked-in-reva-frontend:build"
           }
         },
         "test": {
