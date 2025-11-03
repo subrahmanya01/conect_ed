@@ -6,9 +6,10 @@ import { SocketService } from 'src/app/services/socket.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-notification',
-  templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.css']
+    selector: 'app-notification',
+    templateUrl: './notification.component.html',
+    styleUrls: ['./notification.component.css'],
+    standalone: false
 })
 export class NotificationComponent implements OnInit{
   notifications: NotificationModel[] = [];

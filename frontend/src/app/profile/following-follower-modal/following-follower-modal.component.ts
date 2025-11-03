@@ -4,9 +4,10 @@ import { FriendService } from 'src/app/services/friend.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-following-follower-modal',
-  templateUrl: './following-follower-modal.component.html',
-  styleUrls: ['./following-follower-modal.component.css']
+    selector: 'app-following-follower-modal',
+    templateUrl: './following-follower-modal.component.html',
+    styleUrls: ['./following-follower-modal.component.css'],
+    standalone: false
 })
 export class FollowingFollowerModalComponent implements OnInit, OnChanges {
   @Input() userData : any;

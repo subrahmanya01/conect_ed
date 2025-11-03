@@ -13,9 +13,10 @@ import { SocketService } from 'src/app/services/socket.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-profile-overview',
-  templateUrl: './profile-overview.component.html',
-  styleUrls: ['./profile-overview.component.css']
+    selector: 'app-profile-overview',
+    templateUrl: './profile-overview.component.html',
+    styleUrls: ['./profile-overview.component.css'],
+    standalone: false
 })
 export class ProfileOverviewComponent implements OnInit {
   userProfile : UserModel = {} as UserModel;

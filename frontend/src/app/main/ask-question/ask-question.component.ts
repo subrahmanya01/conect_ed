@@ -9,9 +9,10 @@ import { SocketService } from 'src/app/services/socket.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-ask-question',
-  templateUrl: './ask-question.component.html',
-  styleUrls: ['./ask-question.component.css']
+    selector: 'app-ask-question',
+    templateUrl: './ask-question.component.html',
+    styleUrls: ['./ask-question.component.css'],
+    standalone: false
 })
 export class AskQuestionComponent implements OnChanges {
     

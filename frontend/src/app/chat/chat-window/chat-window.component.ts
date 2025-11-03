@@ -7,9 +7,10 @@ import { SocketService } from 'src/app/services/socket.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-chat-window',
-  templateUrl: './chat-window.component.html',
-  styleUrls: ['./chat-window.component.css']
+    selector: 'app-chat-window',
+    templateUrl: './chat-window.component.html',
+    styleUrls: ['./chat-window.component.css'],
+    standalone: false
 })
 export class ChatWindowComponent implements OnInit, AfterViewChecked{
   chatUsers: UserModel[] = [];

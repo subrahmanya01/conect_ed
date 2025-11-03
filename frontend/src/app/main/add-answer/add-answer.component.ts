@@ -10,9 +10,10 @@ import { SocketService } from 'src/app/services/socket.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-add-answer',
-  templateUrl: './add-answer.component.html',
-  styleUrls: ['./add-answer.component.css']
+    selector: 'app-add-answer',
+    templateUrl: './add-answer.component.html',
+    styleUrls: ['./add-answer.component.css'],
+    standalone: false
 })
 export class AddAnswerComponent implements OnChanges  {
   answerForm : FormGroup;

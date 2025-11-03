@@ -1,9 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-tag-input',
-  templateUrl: './tag-input.component.html',
-  styleUrls: ['./tag-input.component.css']
+    selector: 'app-tag-input',
+    templateUrl: './tag-input.component.html',
+    styleUrls: ['./tag-input.component.css'],
+    standalone: false
 })
 export class TagInputComponent {
   public tagList:string[] = [];

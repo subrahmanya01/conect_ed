@@ -7,9 +7,10 @@ import { UserService } from 'src/app/services/user.service';
 import { AbstractControl, ValidatorFn } from '@angular/forms'; // Import necessary types
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.css'],
+    standalone: false
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;

@@ -8,9 +8,10 @@ import { QuestionService } from 'src/app/services/question.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-answers',
-  templateUrl: './answers.component.html',
-  styleUrls: ['./answers.component.css']
+    selector: 'app-answers',
+    templateUrl: './answers.component.html',
+    styleUrls: ['./answers.component.css'],
+    standalone: false
 })
 export class AnswersComponent implements OnInit {
   questionId : string|null ="";
