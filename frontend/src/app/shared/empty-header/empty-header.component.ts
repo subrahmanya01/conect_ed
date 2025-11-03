@@ -9,4 +9,9 @@ import { settings } from 'src/assets/appsettings';
 })
 export class EmptyHeaderComponent {
  constants: any =globalConstants;
+ navLinks = [
+    { label: 'Features', route: '/features' },
+    { label: 'FAQ', route: '/faq' },
+    { label: 'Log In', route: '/login' }
+  ];
 }

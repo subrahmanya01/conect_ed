@@ -29,9 +29,12 @@ export class UserService {
     return this.userName;
   }
 
-  public getUserEmail()
-  {
-    return this.email
+  public getUserEmail() {
+    return this.email;
+  }
+
+  public getUserAvatar(): string | null {
+    return null; // This will trigger the fallback to UI Avatars
   }
   
   public getUserByUserId(userId : string):Observable<ApiResponseModel>

@@ -1,3 +1,3 @@
 export const globalConstants = {
-  applicationName : "Linked In Reva"
+  applicationName : "QA Platform"
 }

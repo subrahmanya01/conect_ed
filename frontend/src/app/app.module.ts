@@ -10,10 +10,15 @@ import { SharedModule } from './shared/shared.module';
 import { ChatModule } from './chat/chat.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
-
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { AddQuestionComponent } from './pages/add-question/add-question.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
+    LandingPageComponent,
+    AddQuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +30,9 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     SharedModule,
     ChatModule,
     AppRoutingModule,
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     {

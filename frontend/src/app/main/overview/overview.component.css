@@ -1,40 +1,297 @@
-.main-card
-{
-    border-bottom: 1px solid rgb(190, 190, 243);
-    position: relative;
+.qa-layout {
+  display: flex;
+  min-height: 100vh;
 }
-.main-card > .card-header > a
-{
-    text-decoration: none;
-    width: 75%;
-    display: inline-block;
-}
-.main-card >.card-desc
-{
-    font-size: 14px;
-    height: 3em;
-    width: 80%;
-    white-space: nowrap; /* Prevents the text from wrapping to the next line */
-    overflow: hidden;   /* Hides text that exceeds the container's width */
-    text-overflow: ellipsis;
-}
-.delete-btn
-{
-    position: absolute;
-    right: 0px;
-    top: 0px;
-}
-/* .main-card >.card-tags
-{
 
+
+.sidebar {
+  width: 280px;
+  background-color: white;
+  padding: 1.5rem 0;
+  border: 1px solid #e1e4e8;
+  flex-shrink: 0;
+  border-radius: 10px;
+  margin: 20px 0px;
 }
-.main-card >.card-user
-{
 
-} */
 
-.flex-x
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  transition: background-color 0.15s;
+  border-left: 3px solid transparent;
+}
+
+.nav-item:hover {
+  background-color: #f1f7fe;
+}
+
+.nav-item.active {
+  background-color: #e6f0ff; /* Light blue background for active */
+  color: #377dff; /* Darker blue text for active */
+  font-weight: 600;
+  border-left-color: #377dff; /* Blue bar on the left */
+}
+
+/* Top Tags Section */
+.top-tags {
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.top-tags-heading {
+  font-size: 0.8rem;
+  color: #6a737d;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.tag-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 0;
+}
+
+.tag-name {
+  font-size: 0.9rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.tag-count {
+  font-size: 0.8rem;
+  color: #6a737d;
+}
+
+/* --- Main Content Styling --- */
+.main-content {
+  flex-grow: 1; /* Takes up the rest of the space */
+  padding: 2rem 3rem;
+  max-width: calc(100% - 280px); /* Ensures content doesn't get too wide on large screens */
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* Tab Navigation */
+.tab-nav {
+  display: flex;
+  border-bottom: 2px solid #e1e4e8;
+  margin-bottom: 1.5rem;
+}
+
+.tab-item {
+  padding: 0.7rem 1.2rem;
+  text-decoration: none;
+  color: #6a737d;
+  font-size: 1rem;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px; /* Pulls up to hide the bottom border line */
+  transition: all 0.15s;
+}
+
+.tab-item.active {
+  color: #377dff;
+  border-bottom-color: #377dff;
+  font-weight: 600;
+}
+
+/* Question List */
+.question-list {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.question-card {
+  display: flex;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e1e4e8;
+  gap: 1.5rem;
+}
+
+/* Stats Column (Votes/Answers/Views) */
+.stats-column {
+  flex-shrink: 0;
+  width: 80px; /* Fixed width for stats area */
+  text-align: right;
+}
+
+.stat-item {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.stat-item .label {
+  display: block;
+  font-size: 0.60rem;
+  font-weight: 400;
+  color: #6a737d;
+}
+
+.stat-item.answers {
+ 
+}
+.answer-box
 {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+  background-color: #d4ffd4;
+  color:#138013 ;
+  border-radius: 3px;
+  padding: 4px;
+}
+.stat-item.views
+{
+    font-size: 12px;
+    flex-direction: row;
+}
+
+/* Content Column (Title/Description/Meta) */
+.content-column {
+  flex-grow: 1;
+}
+
+.question-title {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #377dff; /* Blue title link */
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.question-title:hover {
+  color: #2c65e0;
+}
+
+.question-description {
+  font-size: 0.9rem;
+  color: #6a737d;
+  margin-bottom: 0.75rem;
+}
+
+.question-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.tag-list .tag {
+  background-color: #e1ecf4;
+  color: #377dff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  margin-right: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.asked-info {
+  color: #6a737d;
+}
+
+/* --- Pagination --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 0.5rem;
+}
+
+.pagination-link {
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.15s;
+}
+
+.pagination-link.page-number {
+  color: #333;
+  border: 1px solid #d1d9e2;
+}
+
+.pagination-link.page-number.active {
+  background-color: #377dff;
+  color: #fff;
+  border-color: #377dff;
+}
+
+.pagination-link.page-number:not(.active):hover {
+  background-color: #f1f7fe;
+}
+
+.pagination-link.arrow-link {
+  display: flex;
+  align-items: center;
+  color: #6a737d;
+  gap: 0.25rem;
+}
+
+.pagination-dots {
+  padding: 0 0.4rem;
+  color: #6a737d;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 992px) {
+  .qa-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e1e4e8;
+    padding-bottom: 0;
+  }
+
+  .main-nav {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #e1e4e8;
+  }
+  
+  .nav-item {
+    padding: 0.8rem 1rem;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+  }
+
+  .nav-item.active {
+    border-left: none;
+    border-bottom-color: #377dff;
+  }
+
+  .top-tags {
+    display: none; /* Hide the Top Tags list on smaller screens to save space */
+  }
+
+  .main-content {
+    padding: 1rem 1rem;
+    max-width: 100%;
+  }
 }

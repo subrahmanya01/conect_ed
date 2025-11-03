@@ -1,36 +1,82 @@
 
-<div class="container mt-4">
-    <div class="mb-3 form-group search-box">
-        <input type="search" class="form-control" id="exampleFormControlInput1" #keyword placeholder="Search..." (input)="search(keyword.value)">
+<div class="container">
+    <div class="qa-layout">
+    <aside class="sidebar">
+        <nav class="main-nav">
+        <a *ngFor="let item of mainNav" 
+            [routerLink]="['/', item.name.toLowerCase()]" 
+            [class.active]="item.active"
+            class="nav-item">
+            <span class="material-symbols-outlined">{{ item.icon }}</span> 
+            {{ item.name }}
+        </a>
+        </nav>
+
+        <div class="top-tags">
+        <h3 class="top-tags-heading">TOP TAGS</h3>
+        <div *ngFor="let tag of topTags" class="tag-row">
+            <a href="#" class="tag-name">{{ tag.name }}</a>
+            <span class="tag-count">{{ tag.count }}</span>
+        </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <h1 class="page-title">All Questions</h1>
+
+        <nav class="tab-nav">
+        <a href="#" class="tab-item active">Newest</a>
+        <a href="#" class="tab-item">Active</a>
+        <a href="#" class="tab-item">Unanswered</a>
+        <a href="#" class="tab-item">Popular</a>
+        </nav>
+
+        <div class="question-list">
+        <div *ngFor="let question of questions" class="question-card">
+            
+            <div class="stats-column">
+            <div class="stat-item votes">{{ question.votes }}<span class="label">votes</span></div>
+            <div class="stat-item answers"><div class="answer-box">
+                {{ question.answers }}<span class="label">answers</span>
+            </div></div>
+            <div class="stat-item views">{{ question.views }}<span class="label" style="display: inline-block; margin-left: 6px;">views</span></div>
+            </div>
+            
+            <div class="content-column">
+            <a href="#" class="question-title">{{ question.title }}</a>
+            <p class="question-description">{{ question.description }}</p>
+            <div class="question-meta">
+                <div class="tag-list">
+                <span *ngFor="let tag of question.tags" class="tag">{{ tag }}</span>
+                </div>
+                <span class="asked-info">asked by **{{ question.askedBy }}** {{ question.time }}</span>
+            </div>
+            </div>
+        </div>
+        </div>
+    
+    <div class="pagination">
+      <a href="#" class="pagination-link arrow-link">
+        <span class="material-icons">arrow_back</span>
+        Previous
+      </a>
+      <a href="#" class="pagination-link page-number active">1</a>
+      <a href="#" class="pagination-link page-number">2</a>
+      <a href="#" class="pagination-link page-number">3</a>
+      <span class="pagination-dots">...</span>
+      <a href="#" class="pagination-link page-number">10</a>
+      <a href="#" class="pagination-link arrow-link">
+        Next
+        <span class="material-icons">arrow_forward</span>
+      </a>
     </div>
 
-    <div class="text-center" *ngIf="searchKeyword.length >0">
-        <h6>Searching for <span style="color: red;">{{searchKeyword}}</span></h6>
-    </div>
-
-    <div class="main-card mt-4" *ngFor="let question of questions.reverse()">
-        <div class="card-header">
-            <a routerLink="/answer/{{question._id}}">{{question.title}}</a>
-        </div>
-        <div class="btn-group delete-btn" role="group" *ngIf="question.createdBy._id == userService.getUserId()">
-            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              More
-            </button>
-            <ul class="dropdown-menu">
-              <li style="padding: 10px 10px; cursor: pointer;" (click)="deleteQuestion(question._id)">Delete</li>
-              <li style="padding: 10px 10px; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEditClick(question)">Edit</li>
-            </ul>
-          </div>
-        <div class="card-desc">
-            {{question.content}}
-        </div>
-        <div class="card-tags mt-2">
-            <span class="badge text-bg-primary" style="display: inline-block; margin-left: 10px;" *ngFor="let tag of question.tags">{{tag}}</span>
-        </div>
-        <div class="card-user" style="height: 23px;">
-            <div style="float: right;"><a routerLink="profile/{{question.createdBy._id}}" style="font-weight: 600;">{{question.createdBy.firstName + " " + question.createdBy.lastName}}</a> {{question.createdAt | date: 'yyyy-MM-dd HH:mm:ss'}}</div>
-        </div>
-    </div>
+  </main>
+</div>
 </div>
 
-<app-ask-question [isEdit]="doEdit" [data]="currentlyEditing" (modalClosed)="onPopupClose()"></app-ask-question>
+<app-ask-question 
+    [isEdit]="doEdit" 
+    [data]="currentlyEditing" 
+    (modalClosed)="onPopupClose()">
+</app-ask-question>

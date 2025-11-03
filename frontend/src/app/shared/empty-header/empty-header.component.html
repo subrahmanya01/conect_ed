@@ -1,14 +1,30 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <img src="assets/linked-in-reva.png" style="width: 35px; height: 35px; display: inline-block; margin-right: 10px;">
-      <a class="navbar-brand ml-4" routerLink="/" style="font-weight: 600;">{{constants.applicationName}}</a>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      </div>
-    </div>
-  </nav>
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-left">
+            <a class="navbar-brand" routerLink="/">
+                <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#4A90E2" transform="translate(50,50)">
+                        <rect x="-8" y="-35" width="16" height="70" rx="2"/>
+                        <rect x="-8" y="-35" width="16" height="70" rx="2" transform="rotate(60)"/>
+                        <rect x="-8" y="-35" width="16" height="70" rx="2" transform="rotate(-60)"/>
+                    </g>
+                </svg>
+                <span class="app-name">QA Platform</span>
+            </a>
+        </div>
 
-<app-notification></app-notification>
-  
+        <div class="navbar-right">
+            <a 
+              *ngFor="let link of navLinks" 
+              [routerLink]="link.route" 
+              class="nav-link"
+            >
+              {{ link.label }}
+            </a>
+
+            <a routerLink="/signup" class="btn btn-primary">
+                Sign Up
+            </a>
+        </div>
+    </div>
+</nav>

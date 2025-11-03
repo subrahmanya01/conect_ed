@@ -9,12 +9,19 @@ import { ChatWindowComponent } from './chat/chat-window/chat-window.component';
 import { AboutUsComponent } from './shared/about-us/about-us.component';
 import { AuthGuard } from './guards/auth.guard';
 import { DActivateLoginGuard } from './guards/d-activate-login.guard';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { AddQuestionComponent } from './pages/add-question/add-question.component';
+
 
 const routes: Routes = [
   {
     path:'',
     component: OverviewComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path:"home",
+    component:LandingPageComponent,
   },
   {
     path:"login",
@@ -25,6 +32,10 @@ const routes: Routes = [
     path:"register",
     component:RegisterComponent,
     canActivate: [DActivateLoginGuard]
+  },
+  {
+    path:"ask-question",
+    component: AddQuestionComponent,
   },
   {
     path:"answer/:id",

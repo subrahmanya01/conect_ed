@@ -1,0 +1,71 @@
+<!-- <div class="ask-question-page">
+  <h1 class="page-title">Ask a Public Question</h1>
+
+  <div class="card tips-card" *ngIf="showTips">
+    <div class="tips-content">
+      <h3>Tips for a great question</h3>
+      <p>Summarize your problem in the title. Describe what you've tried. Include relevant code or error messages.</p>
+      <button class="dismiss-btn" (click)="dismissTips()">Dismiss</button>
+    </div>
+  </div>
+
+  <form [formGroup]="questionForm" (ngSubmit)="postQuestion()">
+
+    <div class="card form-section">
+      <label for="questionTitle" class="form-label">Title</label>
+      <p class="field-description">Be specific and imagine you're asking a question to another person.</p>
+      <input type="text" id="questionTitle" class="form-control" formControlName="title" placeholder="e.g. How to center a div in CSS?">
+      <div class="error-message" *ngIf="questionForm.get('title')?.invalid && questionForm.get('title')?.touched">
+        Title is required and should be at least 10 characters.
+      </div>
+    </div>
+
+    <div class="card form-section">
+      <label for="questionBody" class="form-label">Body</label>
+      <p class="field-description">Include all the information someone would need to answer your question. Use the editor toolbar for formatting.</p>
+      
+      <ckeditor 
+        [editor]="Editor" 
+        formControlName="body" 
+        [config]="editorConfig">
+      </ckeditor>
+
+      <div class="error-message" *ngIf="questionForm.get('body')?.invalid && questionForm.get('body')?.touched">
+        Body content is required.
+      </div>
+    </div>
+
+    <div class="card form-section">
+      <label for="questionTags" class="form-label">Tags</label>
+      <p class="field-description">Add up to 5 tags to describe what your question is about.</p>
+      <div class="tag-input-wrapper">
+        <div class="tags-display">
+          <span class="tag-item" *ngFor="let tag of tags">
+            {{ tag }}
+            <span class="material-icons tag-remove-icon" (click)="removeTag(tag)">close</span>
+          </span>
+        </div>
+        <input 
+          #tagInputElem
+          type="text" 
+          id="questionTags" 
+          class="form-control tag-input" 
+          [(ngModel)]="tagInput" 
+          [ngModelOptions]="{standalone: true}"
+          (keydown.enter)="$event.preventDefault(); addTag(tagInputElem)"
+          placeholder="e.g. javascript react tailwindcss"
+          [disabled]="tags.length >= maxTags"
+        >
+      </div>
+      <div class="tag-limit-info" *ngIf="tags.length >= maxTags">
+        You can add a maximum of {{ maxTags }} tags.
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button type="submit" class="btn btn-primary">Post Your Question</button>
+      <button type="button" class="btn btn-secondary" (click)="saveDraft()">Save Draft</button>
+    </div>
+
+  </form>
+</div> -->

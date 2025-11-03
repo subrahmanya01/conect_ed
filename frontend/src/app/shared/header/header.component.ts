@@ -39,10 +39,13 @@ export class HeaderComponent implements OnInit, DoCheck {
     this.router.navigateByUrl(`/profile/${this.userService.getUserId()}`)
   }
 
-  logout()
-  {
+  logout() {
     let res = confirm("Do you really want to logout?");
     if(res) this.authService.logout();
+  }
+
+  isActive(route: string): boolean {
+    return this.router.url === route;
   }
 
 }

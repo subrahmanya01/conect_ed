@@ -1,6 +1,9 @@
-<app-header *ngIf="isLoggedIn"></app-header>
-<app-empty-header *ngIf="!isLoggedIn"></app-empty-header>
-<div style="min-height: 75vh;">
+<div *ngIf="showHeader">
+    <app-header *ngIf="isLoggedIn"></app-header>
+    <app-empty-header *ngIf="!isLoggedIn"></app-empty-header>
+</div>
+
+<div style="min-height: 75vh; background-color: var(--page-background);">
     <router-outlet></router-outlet>
 </div>
 <app-ask-question [isEdit]="false"></app-ask-question>

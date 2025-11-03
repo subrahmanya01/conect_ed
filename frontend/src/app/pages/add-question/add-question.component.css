@@ -1,0 +1,217 @@
+/* --- Global Page Layout --- */
+.ask-question-page {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+  background-color: #f7f9fc; /* Light background */
+  font-family: Arial, sans-serif;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+  margin-bottom: 25px;
+  padding: 25px;
+}
+
+/* --- Tips Card --- */
+.tips-card {
+  background-color: #e6f7ff; /* Lighter blue for tips background */
+  border-color: #91d5ff; /* Blue border */
+  padding: 20px 25px;
+}
+
+.tips-card h3 {
+  font-size: 1.1rem;
+  color: #1a4d6f;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.tips-card p {
+  font-size: 0.95rem;
+  color: #3b769f;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.dismiss-btn {
+  background: #3498db;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.dismiss-btn:hover {
+  background-color: #2980b9;
+}
+
+/* --- Form Elements --- */
+.form-label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.field-description {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dcdfe6;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control::placeholder {
+  color: #b0b9c0;
+}
+
+.form-control:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* --- CKEditor 5 Styling --- */
+/* Overrides to ensure the editor fits the card style */
+:host ::ng-deep .ck-editor__editable {
+    min-height: 250px; /* Enforce the minimum height */
+    border-bottom-left-radius: 6px !important;
+    border-bottom-right-radius: 6px !important;
+    border-color: #dcdfe6 !important;
+}
+
+:host ::ng-deep .ck.ck-toolbar {
+    border-top-left-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+    border-color: #dcdfe6 !important;
+}
+
+/* --- Tags Input --- */
+.tag-input-wrapper {
+  border: 1px solid #dcdfe6;
+  border-radius: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 8px 10px;
+  min-height: 48px; 
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tag-input-wrapper:focus-within {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.tag-input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  padding: 5px 0;
+  font-size: 1rem;
+  min-width: 100px; 
+  background: transparent;
+}
+
+.tags-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-item {
+  background-color: #e1ecf4;
+  color: #377dff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.tag-remove-icon {
+  font-size: 1rem;
+  cursor: pointer;
+  color: #377dff;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.tag-remove-icon:hover {
+  opacity: 1;
+}
+
+.tag-limit-info {
+  font-size: 0.8rem;
+  color: #e74c3c;
+  margin-top: 8px;
+}
+
+/* --- Action Buttons --- */
+.action-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #f0f3f6;
+  color: #5c6a78;
+  border: 1px solid #dcdfe6;
+}
+
+.btn-secondary:hover {
+  background-color: #e2e6eb;
+  transform: translateY(-1px);
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
