@@ -15,7 +15,7 @@ const io= new Server(server)
 
 connectSocket(io);
 
-server.listen(port, err => {
+app.listen(port, err => {
   if (err) {
     console.log(err);
     return process.exit(1);
