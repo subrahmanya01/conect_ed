@@ -97,4 +97,5 @@ export default (app) => {
     });
 
   });
+  console.log('API Prefix:', prefix);
 }
