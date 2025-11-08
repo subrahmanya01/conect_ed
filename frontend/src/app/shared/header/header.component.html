@@ -9,7 +9,7 @@
                         <rect x="-8" y="-35" width="16" height="70" rx="2" transform="rotate(-60)"/>
                     </g>
                 </svg>
-                <span class="app-name">QA Platform</span>
+                <span class="app-name">ConnectEd</span>
             </a>
             <div class="nav-links">
                 <a routerLink="/" class="nav-link" [class.active]="isActive('/')">Home</a>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="navbar-right">
-            <button class="ask-button" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button class="ask-button" type="button" (click)="navigateToAddQuestion()">
                 Ask Question
             </button>
 

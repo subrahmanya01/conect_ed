@@ -4,7 +4,6 @@ import { validateEditQuestionRequest } from '../../../validators/question.valida
 export default async (req, res) => {
   try
   {
-       
     const { error } = validateEditQuestionRequest(req.body)
 
     if (error) {

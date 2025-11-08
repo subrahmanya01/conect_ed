@@ -23,6 +23,14 @@ const questionSchema = new Schema(
       type: Number,
     },
 
+    votes: {
+      type: Number,
+    },
+
+    views:{
+      type: Number,
+    },
+    
     isEdited: {
       type: Boolean,
       default: false,

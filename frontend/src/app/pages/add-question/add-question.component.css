@@ -1,9 +1,6 @@
 /* --- Global Page Layout --- */
 .ask-question-page {
-  max-width: 900px;
-  margin: 50px auto;
-  padding: 0 20px;
-  background-color: #f7f9fc; /* Light background */
+  padding: 60px 20px;
   font-family: Arial, sans-serif;
 }
 

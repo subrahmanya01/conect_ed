@@ -1,0 +1,281 @@
+/* Using some variables for easy theme changes */
+:host {
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bg-color: #ffffff;
+  --sidebar-bg: #f9f9f9;
+  --active-convo-bg: #edf2f7;
+  --border-color: #e0e0e0;
+  
+  --text-primary: #050505;
+  --text-secondary: #65676b;
+  --text-tertiary: #8a8d91;
+
+  --message-sent-bg: #e1f5fe;
+  --message-sent-text: #000;
+  --message-received-bg: #f1f1f1;
+  --message-received-text: #000;
+
+  --primary-color: #0b93f6;
+}
+
+.chat-layout {
+  display: flex;
+  width: 100%;
+  height: 90vh; 
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: var(--font-family);
+  background: var(--bg-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Target the icon inside the button */
+  .material-icons-outlined {
+    font-size: 24px; /* Standard size for Google Icons */
+    line-height: 1;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* ======================== */
+/* SIDEBAR          */
+/* ======================== */
+.sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border-color);
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+  padding-right: 0.5rem; /* Space for the icon button */
+  h3 { margin: 0; }
+}
+
+.search-bar {
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  
+  input {
+    width: 100%;
+    padding: 8px 12px 8px 36px; /* Make room for the icon */
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-color);
+  }
+
+  .icon-search {
+    position: absolute;
+    left: 1.7rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+    font-size: 20px; /* Slightly smaller for search bar */
+  }
+}
+
+.conversation-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  flex-grow: 1;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+
+    &:hover { background: var(--active-convo-bg); }
+    &.active { background: var(--active-convo-bg); }
+
+    .convo-details {
+      flex-grow: 1;
+      overflow: hidden;
+      .convo-name {
+        display: block;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .convo-message {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .convo-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+
+      .convo-unread {
+        background: var(--primary-color);
+        color: white;
+        font-size: 0.7rem;
+        font-weight: 600;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        display: grid;
+        place-items: center;
+        margin-top: 4px;
+      }
+    }
+  }
+}
+
+/* ======================== */
+/* CHAT WINDOW        */
+/* ======================== */
+.chat-window {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-color);
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+
+  .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    .avatar { width: 36px; height: 36px; }
+    .contact-name { display: block; font-weight: 600; }
+    .contact-status { display: block; font-size: 0.8rem; color: var(--text-secondary); }
+  }
+  
+  .chat-actions {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+.message-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.message-bubble {
+  display: flex;
+  max-width: 70%;
+  gap: 10px;
+
+  .message-avatar {
+    width: 32px;
+    height: 32px;
+    align-self: flex-end; /* Aligns avatar to bottom of message block */
+  }
+
+  .message-content {
+    padding: 10px 14px;
+    border-radius: 18px;
+    p { margin: 0; }
+  }
+
+  .message-timestamp {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    margin-top: 4px;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align timestamp and check */
+
+    .read-receipt {
+      color: var(--primary-color);
+      margin-left: 3px;
+      
+      .material-icons-outlined {
+        font-size: 16px; /* Make read receipt check smaller */
+      }
+    }
+  }
+}
+
+/* Sent vs. Received styling */
+.message-bubble.sent {
+  align-self: flex-end;
+  .message-content {
+    background: var(--message-sent-bg);
+    color: var(--message-sent-text);
+    border-bottom-right-radius: 4px;
+  }
+}
+
+.message-bubble.received {
+  align-self: flex-start;
+  .message-content {
+    background: var(--message-received-bg);
+    color: var(--message-received-text);
+    border-bottom-left-radius: 4px;
+  }
+}
+
+.chat-input-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border-color);
+  flex-shrink: 0;
+
+  input[type="text"] {
+    flex-grow: 1;
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 1rem;
+    &:focus { outline: none; border-color: var(--primary-color); }
+  }
+}

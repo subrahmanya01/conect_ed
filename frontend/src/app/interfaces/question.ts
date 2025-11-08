@@ -15,6 +15,8 @@ export interface QuestionModel {
     isActive:  boolean;
     createdAt: Date;
     updatedAt: Date;
+    votes: number;
+    views: number;
     __v:       number;
 }
 

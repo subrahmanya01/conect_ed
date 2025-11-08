@@ -12,7 +12,7 @@
 :root{
     --primary-color: #2563eb;
     --secondary-color: #64748b;
-    --page-background: #f1f5f9;
+    --page-background: rgb(255, 251, 251);
 }
 
 *{

@@ -20,6 +20,13 @@ const answerSchema  = new Schema(
 
     tags: [String],
 
+    votes: {
+      type: Number,
+    },
+
+    views:{
+      type: Number,
+    },
 
     timezone: {
       type: Number,

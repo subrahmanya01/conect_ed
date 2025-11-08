@@ -213,3 +213,83 @@
     font-weight: 700;
     margin-left: 10px;
 }
+
+
+@media (max-width: 992px) {
+    .navbar-left {
+        gap: 1rem;
+    }
+
+    .navbar-center {
+        flex: 0 1 350px; 
+        margin: 0 1rem;
+    }
+
+    .app-name {
+        display: none; 
+    }
+
+    .navbar-right {
+        gap: 0.5rem; 
+    }
+
+    .ask-button {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .search-input {
+        padding: 0.5rem 1rem 0.5rem 2.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar > .container {
+        padding: 0 0.5rem; 
+    }
+
+    .navbar-left {
+        gap: 0.5rem;
+    }
+
+    .nav-links {
+        display: none; 
+    }
+
+    .navbar-brand svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .navbar-center {
+        display: none; 
+    }
+    
+    .navbar-right {
+        gap: 0.5rem; 
+    }
+
+    .profile-menu .dropdown-toggle {
+        display: none; 
+    }
+
+    .nav-icons > .header-icon {
+        display: none;
+    }
+
+
+    .ask-button {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.7rem;
+    }
+
+    .profile-img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .ask-button {
+        display: none;
+    }
+}

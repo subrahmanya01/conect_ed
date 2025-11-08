@@ -19,7 +19,7 @@ const chatSchema = new Schema({
   },
   createdAt:{
     type: Date,
-    Date: new Date()
+    Date: new Date() 
   }
 },
   {

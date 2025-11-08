@@ -26,6 +26,11 @@ export class HeaderComponent implements OnInit, DoCheck {
     this.router.navigateByUrl("/chat")
   }
 
+  navigateToAddQuestion()
+  {
+    this.router.navigateByUrl("/ask-question")
+  }
+
   setUserInfo()
   {
     if(!localStorage["LOGED_IN_USER"]) return;

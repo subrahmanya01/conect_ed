@@ -21,6 +21,7 @@ export interface AnswerModel {
     isActive:   boolean;
     createdAt:  Date;
     updatedAt:  Date;
+    votes: number;
     __v:        number;
 }
 

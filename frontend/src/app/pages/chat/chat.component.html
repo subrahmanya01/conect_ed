@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="chat-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h4>Messages</h4>
+      <button class="icon-button">
+        <span class="material-symbols-outlined">
+            more_vert
+        </span>
+      </button>
+    </div>
+    
+    <div class="search-bar">
+      <span class="material-symbols-outlined icon-search">search</span>
+      <input type="text" placeholder="Search conversations">
+    </div>
+
+    <ul class="conversation-list">
+      <li *ngFor="let convo of conversations" 
+          [class.active]="convo.active" 
+          (click)="selectConversation(convo)">
+        <img [src]="convo.avatar" alt="Avatar" class="avatar">
+        <div class="convo-details">
+          <span class="convo-name">{{ convo.name }}</span>
+          <span class="convo-message">{{ convo.lastMessage }}</span>
+        </div>
+        <div class="convo-meta">
+          <span class="convo-timestamp">{{ convo.timestamp }}</span>
+          <span *ngIf="convo.unreadCount > 0" class="convo-unread">{{ convo.unreadCount }}</span>
+        </div>
+      </li>
+    </ul>
+  </aside>
+
+  <main class="chat-window">
+    <header class="chat-header">
+      <div class="contact-info">
+        <img [src]="activeChat.avatar" alt="Avatar" class="avatar">
+        <div>
+          <span class="contact-name">{{ activeChat.name }}</span>
+          <span class="contact-status">{{ activeChat.status }}</span>
+        </div>
+      </div>
+      <div class="chat-actions">
+        <button class="icon-button">
+          <span class="material-symbols-outlined">
+            search
+            </span>
+        </button>
+        <button class="icon-button">
+          <span class="material-symbols-outlined">
+            more_vert
+        </span>
+        </button>
+      </div>
+    </header>
+
+    <section class="message-list">
+      <div *ngFor="let msg of activeChat.messages" 
+           class="message-bubble" 
+           [class.sent]="msg.isMe" 
+           [class.received]="!msg.isMe">
+        
+        <img *ngIf="!msg.isMe" [src]="msg.avatar" alt="Sender Avatar" class="avatar message-avatar">
+        
+        <div class="message-content">
+          <p>{{ msg.text }}</p>
+          <span class="message-timestamp">
+            {{ msg.timestamp }}
+            <span *ngIf="msg.isMe && msg.read" class="read-receipt">
+              <span class="material-symbols-outlined">check</span>
+            </span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="chat-input-area">
+      <button class="icon-button">
+        <span class="material-symbols-outlined">mood</span>
+      </button>
+      <button class="icon-button">
+        <span class="material-symbols-outlined">attach_file</span>
+      </button>
+      <input type="text" placeholder="Type a message...">
+      </footer>
+  </main>
+
+</div>
+</div>

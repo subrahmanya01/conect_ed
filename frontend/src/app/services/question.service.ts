@@ -60,4 +60,16 @@ export class QuestionService {
   {
     return this.httpClient.get<ApiResponseModel>(this.baseurl + `/search/${keyword}`);
   }
+
+  public voteQuestion(questionId : string, isUpvote : boolean):Observable<ApiResponseModel>
+  {
+    const request = { questionId, voteType: isUpvote ? 'upvote' : 'downvote' };
+    return this.httpClient.post<ApiResponseModel>(this.baseurl + `/question/vote`, request);
+  }
+
+  public incrementViewCount(questionId : string):Observable<ApiResponseModel>
+  {
+    const request = { questionId };
+    return this.httpClient.post<ApiResponseModel>(this.baseurl + `/question/update-views`, request);
+  }
 }

@@ -75,7 +75,7 @@ export default {
 
 
   "00109" : "Answer added successfully",
-  "00110" : "Answer do not exist for given answer id.",
+  "00110" : "Answer vote updated successfully.",
   "00111" : "Answer deleted successfuly.",
   "00112" : "Answers fetched successfuly.",
   "00113" : "Answers edited successfuly.",
@@ -108,6 +108,10 @@ export default {
   "00136": "Notification added successfully",
   "00137": "Notification fetched successfully",
   "00138": "Notification made read successfully",
+
+  "00139": "Invalid answer Id.",
+  "00140": "Invalid question Id.",
+  "00141": "Invalid vote type.",
 
 
   

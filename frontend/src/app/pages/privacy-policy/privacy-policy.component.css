@@ -1,0 +1,99 @@
+:host {
+  /* CSS Variables remain the same */
+  --primary-blue: #007bff;
+  --light-grey: #f8f9fa;
+  --medium-grey: #e9ecef;
+  --dark-grey: #6c757d;
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --modal-bg: #ffffff;
+  --border-color: #dee2e6;
+}
+
+.terms-modal {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--modal-bg);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 1rem auto;
+}
+
+/* Header */
+.terms-header {
+  padding: 24px 32px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+.terms-header h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+.terms-header .last-updated {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 4px 0 0;
+}
+
+/* Scrollable Content */
+.terms-content {
+  padding: 20px 32px;
+  overflow-y: auto;
+  position: relative;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Section Headings */
+.terms-content h2 {
+  font-size: 1.5rem; /* Larger for main section headings */
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 30px;
+  margin-bottom: 12px;
+}
+.terms-content h3 {
+  font-size: 1.2rem; /* Sub-headings for internal sections */
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.terms-content p {
+  margin-bottom: 16px;
+}
+
+/* NEW: Horizontal Rule (Separator) */
+.terms-content hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 30px 0;
+}
+
+/* NEW: List Styling */
+.terms-content ul {
+    padding-left: 20px;
+    margin-bottom: 16px;
+}
+.terms-content ul li {
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+}
+
+
+/* Fade-out effect for scrolling */
+.terms-content::after {
+  content: '';
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, var(--modal-bg));
+  pointer-events: none;
+}

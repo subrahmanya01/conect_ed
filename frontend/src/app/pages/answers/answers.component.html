@@ -1,0 +1,196 @@
+<div class="answers-container">
+    @if(isLoading) {
+        <div class="loading-spinner">
+            <app-spinner text="Loading question and answers..."></app-spinner>
+        </div>
+    }
+    @else {
+         <div class="container">
+        <div class="layout-container">
+
+            <div class="main-content">
+
+                <div class="question-block">
+                    <div class="question-title" style="width: 100%;">
+                        <h1 class="q-title">{{question.title}}
+                        </h1>
+                        <div class="meta-info">
+                            Asked by <a href="/profile/{{question.createdBy._id}}">{{questionAskedBy}}</a>
+                        </div>
+                        <div class="question-body" >
+                            <div class="vote-container">
+                                <span class="arrow" (click)="upvoteQuestion()">
+                                    <span class="material-symbols-outlined" style="color: green;">
+                                        arrow_upward_alt
+                                    </span>
+                                </span>
+                                <span class="vote-count">{{questionUpvoteCount}}</span>
+                                <span class="arrow" (click)="downvoteQuestion()">
+                                    <span class="material-symbols-outlined" style="color: red;">
+                                        arrow_downward_alt
+                                    </span>
+                                </span>
+                            </div>
+                            <div style="width: 100%;">
+                                <div class="question-desc" [innerHTML]="question.content">
+                                    
+                                </div>
+                                <div class="tags">
+                                    <div class="tags-container">
+                                        @for (tag of question.tags; track tag) {
+                                           <span class="tag">{{tag}}</span>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="operations">
+                                     <span class="material-symbols-outlined" (click)="shareContent()">
+                                        share
+                                    </span>
+                                    <span class="material-symbols-outlined">
+                                        edit
+                                    </span>
+                                    <span class="material-symbols-outlined">
+                                        delete
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="q-a-seperator">
+                    <div class="heading">
+                        <h2 style="font-weight: 700;">{{answers.length}} Answers</h2>
+                    </div>
+                    <div class="sort-options">
+                        <span>Sort by:</span>
+                        <a href="#">Votes</a>
+                    </div>
+                </div>
+
+                @if(answers.length === 0) {
+                    <div class="no-answers">
+                        <div>
+                            <span class="material-symbols-outlined" style="font-size: 86px; color: #007bff;">
+                                person_raised_hand
+                            </span>
+                        </div>
+                        <p>No answers yet. Be the first to answer this question!</p>
+                    </div>
+                }
+
+                @for(answer of answers; track answer) {
+                    <div class="answer-block">
+                    <div class="vote-container">
+                        <div class="vote-container">
+                                <span class="arrow" (click)="upvoteAnswer(answer)">
+                                    <span class="material-symbols-outlined" style="color: green;">
+                                        arrow_upward_alt
+                                    </span>
+                                </span>
+                                <span class="vote-count">{{getVotes(answer)}}</span>
+                                <span class="arrow" (click)="downvoteAnswer(answer)">
+                                    <span class="material-symbols-outlined" style="color: red;">
+                                        arrow_downward_alt
+                                    </span>
+                                </span>
+                            </div>
+                    </div>
+                    <div class="answer-body">
+                        <div class="answer-desc" [innerHTML]="answer.content">
+                        </div>
+                        <div class="answer-meta-footer">
+                            <div>
+                                <div class="answered">
+                                    <span class="answered-by">Answered by {{getAnsweredBy(answer)}}</span> <br>
+                                    <span class="time-stamp">Posted {{getAnsweredTime(answer)}}</span>
+                                </div>
+                                <div class="operations">
+                                    @if(answer.isEdited) {
+                                    <span class="answer-edited">Edited</span>
+                                    }
+                                    <span class="material-symbols-outlined" (click)="shareContent()">
+                                        share
+                                    </span>
+                                    <span class="material-symbols-outlined" data-bs-toggle="modal" data-bs-target="#editModal" (click)="setSelectedAnswer(answer)">
+                                        edit
+                                    </span>
+                                    <span class="material-symbols-outlined" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal" (click)="setSelectedAnswer(answer)">
+                                        delete
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+
+                <div class="your-answer">
+                    <h2 style="font-weight: 700;">Your Answer</h2>
+                    <textarea placeholder="Type your answer here..." [(ngModel)]="newAnswerContent"></textarea>
+                    <button class="post-button" (click)="addAnswer()" [disabled]="newAnswerContent.trim().length ==0">Post Your Answer</button>
+                </div>
+
+            </div>
+
+            <aside class="sidebar">
+                <div class="sidebar-card question-stats">
+                    <h4 class="sidebar-header">Question Stats</h4>
+                    <div class="stat-row"><span>Asked</span><span>{{getAskedTime()}}</span></div>
+                    <div class="stat-row"><span>Views</span><span>{{questionViewCount}} times</span></div>
+                    <div class="stat-row"><span>Answers</span><span>{{answers.length}}</span></div>
+                </div>
+
+                <div class="sidebar-card related-questions">
+                    <h4 class="sidebar-header">Related Questions</h4>
+                    <ul>
+                        <li><a href="#">CSS Grid vs. Flexbox for entire page layouts</a></li>
+                        <li><a href="#">How to center a div both vertically and horizontally?</a></li>
+                        <li><a href="#">What are the best practices for responsive web design in 2024?</a></li>
+                        <li><a href="#">Creating a sticky sidebar with pure CSS</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+    }
+</div>
+
+
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title align-title-center" id="deleteConfirmationModalLabel"> <span class="material-symbols-outlined mr-3">delete</span> Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Do you really want to delete this item?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteAnswer()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title align-title-center" id="deleteConfirmationModalLabel"> <span class="material-symbols-outlined mr-3">edit</span> Edit</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <textarea placeholder="Type your answer here..." [(ngModel)]="editAnswerContent" class="edit-text-area"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="editAnswer()" data-bs-dismiss="modal" [disabled]="isEditAnswerSaveButtonDisabled()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>

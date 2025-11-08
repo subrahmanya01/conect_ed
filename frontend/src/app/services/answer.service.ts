@@ -37,4 +37,10 @@ export class AnswerService {
     return this.httpClient.delete(this.baseUrl + `/answer/delete/${answerId}`);
   }
 
+  public voteAnswer(answerId : string, isUpvote : boolean):Observable<any>
+  {
+    const request = { answerId, voteType: isUpvote ? 'upvote' : 'downvote' };
+    return this.httpClient.post<ApiResponseModel>(this.baseUrl + `/answer/vote`, request);
+  }
+
 }

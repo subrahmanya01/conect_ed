@@ -12,4 +12,6 @@ export { default as deleteAnswer } from './answers/delete-answer.js'
 export { default as getAnswerByUserId } from './answers/get-answer-by-user-id.js'
 export { default as getAnswerByQuestionId } from './answers/get-answers-by-question-id.js'
 
-
+export { default as voteQuestion } from './questions/vote-question.js'
+export { default as voteAnswer } from './answers/vote-answer.js'
+export { default as updateQuestionViews } from './questions/update-question-view.js'

@@ -1,26 +1,267 @@
-.profile-card
-{
-    position: relative;
-}
-.place-right
-{
-    position: absolute;
-    right: 0px;
-    top: 0px;
-}
-
-.custom-card-style
-{
-    height: 4rem;
-    max-height: 4rem;
-    white-space: nowrap; /* Prevents the text from wrapping to the next line */
-    overflow: hidden;   /* Hides text that exceeds the container's width */
-    text-overflow: ellipsis;
+/* --- Global Layout Containers --- */
+.main-content-grid {
+    display: flex;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 10px 20px 0 20px;
+    gap: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.place-right-bottom
-{
-    position: absolute;
-    right:0px;
-    bottom: 0px;
+.profile-header-container {
+    max-width: 1200px;
+    margin: 30px auto 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box; 
+}
+
+/* --- Base Card Styles --- */
+.profile-header-card, .stat-card {
+    background-color: white;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Profile Header Card (ADJUSTED FOR SMALLER BAR) --- */
+.profile-header-card.full-width {
+    padding: 15px 20px; /* Reduced top/bottom padding from 20px to 15px */
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    align-items: center; /* Aligns vertically centered now */
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 0 100%;
+    margin-bottom: 10px; /* Reduced margin */
+}
+
+.avatar-info {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; 
+}
+
+.profile-avatar {
+    width: 60px; /* Reduced avatar size from 70px to 60px */
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px; /* Adjusted margin */
+}
+
+.name-handle h2 {
+    font-size: 1.4em; /* Slightly smaller font */
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+.handle {
+    color: #6a6a6a;
+    font-size: 0.85em; /* Slightly smaller handle text */
+}
+
+.edit-button {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 6px 12px; /* Reduced button padding */
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.bio-section {
+    flex: 1 0 100%;
+    padding-top: 10px; /* Reduced padding */
+    border-top: 1px solid #f0f0f0;
+}
+
+.bio-text {
+    font-size: 0.9em; /* Slightly smaller bio font */
+    color: #555;
+    margin-bottom: 10px; /* Reduced margin */
+    line-height: 1.4;
+}
+
+/* --- The rest of the CSS remains correct and unchanged --- */
+.member-since {
+    font-size: 0.85em;
+    color: #999;
+    margin-bottom: 0;
+}
+
+/* --- Left Sidebar (Stat Cards Only) --- */
+.left-sidebar {
+    flex: 0 0 300px;
+}
+
+/* --- Stat Cards --- */
+.stat-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.stat-card h3 {
+    font-size: 1em;
+    font-weight: 500;
+    margin: 0;
+    color: #555;
+}
+
+.stat-number {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #333;
+}
+
+/* --- Right Content Column (Q/A List) --- */
+.right-content {
+    flex-grow: 1;
+}
+
+/* --- Right Content - Tabs --- */
+.tabs {
+    border-bottom: 2px solid #e1e1e1;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    color: #6a6a6a;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.tabs button.active {
+    color: #007bff;
+    border-bottom-color: #007bff;
+    font-weight: 600;
+}
+
+/* --- Right Content - Content List --- */
+.content-list {
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #e1e1e1;
+    padding: 0 20px;
+}
+
+.content-item {
+    display: flex;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 15px 0;
+}
+
+.content-item:last-child {
+    border-bottom: none;
+}
+
+.vote-column {
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 15px;
+    width: 60px;
+}
+
+.vote-count {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #333;
+}
+
+.vote-label {
+    font-size: 0.8em;
+    color: #6a6a6a;
+}
+
+.details-column {
+    flex-grow: 1;
+}
+
+.title-link {
+    font-size: 1.1em;
+    color: #007bff;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.excerpt {
+    font-size: 0.9em;
+    color: #6a6a6a;
+    margin: 0 0 10px 0;
+}
+
+/* Tags and Footer Row */
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #e6f0ff;
+    color: #4a679e;
+    padding: 3px 8px;
+    margin-right: 5px;
+    border-radius: 4px;
+    font-size: 0.8em;
+}
+
+.asked-time {
+    font-size: 0.8em;
+    color: #999;
+}
+
+/* --- Responsive adjustments for mobile --- */
+@media (max-width: 768px) {
+    .main-content-grid {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .profile-header-container {
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+    .left-sidebar {
+        flex: auto;
+    }
+    
+    .profile-header-card.full-width {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-top {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .avatar-info {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    .profile-avatar {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
 }

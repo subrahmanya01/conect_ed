@@ -35,6 +35,28 @@ export class ProfileOverviewComponent implements OnInit {
 
   userListToSend : UserModel[] = [];
 
+
+  profile = {
+    name: 'Eleanor Vance',
+    handle: '@eleanorvance',
+    bio: "Software Engineer with a passion for front-end development and user experience. Helping build a better web, one answer at a time.",
+    memberSince: 'Jan 15, 2021',
+    reputation: 12450,
+    questions: 82,
+    answers: 312,
+    content: [
+      { id: 1, type: 'question', votes: 125, title: 'How to center a div in CSS?', tags: ['css', 'flexbox', 'grid'], time: '2 days ago' },
+      { id: 2, type: 'question', votes: 42, title: 'What is the difference between `let`, `const`, and `var` in JavaScript?', tags: ['javascript', 'es6', 'scope'], time: '1 week ago' },
+      { id: 3, type: 'question', votes: 88, title: 'How to properly manage state in a large React application?', tags: ['react', 'state-management', 'redux'], time: '3 weeks ago' },
+    ]
+  };
+
+  selectedTab: 'questions' | 'answers' = 'questions';
+
+  selectTab(tab: 'questions' | 'answers'): void {
+    this.selectedTab = tab;
+  }
+
   constructor(public userService : UserService, private route: ActivatedRoute, private friendService:FriendService,
     private questionService: QuestionService, private answerService : AnswerService, private socketService: SocketService,
     private notificationService: NotificationService

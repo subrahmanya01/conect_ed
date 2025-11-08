@@ -14,12 +14,16 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { AddQuestionComponent } from './pages/add-question/add-question.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { RouterModule } from '@angular/router';
+
 @NgModule({ declarations: [
         AppComponent,
         LandingPageComponent,
         AddQuestionComponent,
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent], 
+    imports: [BrowserModule,
         AppRoutingModule,
         AuthModule,
         MainModule,
@@ -28,7 +32,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         ChatModule,
         AppRoutingModule,
         CommonModule,
+        RouterModule,
         ReactiveFormsModule,
+        CKEditorModule,
         FormsModule], providers: [
         {
             provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true

@@ -20,3 +20,20 @@ export function validateEditQuestionRequest(body) {
 
   return schema.validate(body);
 }
+
+export function validateVoteQuestionValidator(body) {
+  const schema = Joi.object({
+    questionId :Joi.string().min(1).max(40).required(),
+    voteType: Joi.string().valid('upvote', 'downvote').required(),
+  });
+
+  return schema.validate(body);
+}
+
+export function validateUpdateQuestionViewRequest(body) {
+  const schema = Joi.object({
+    questionId: Joi.string().min(1).max(40).required(),
+  });
+
+  return schema.validate(body);
+}

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { addAnswer, deleteAnswer, editAnswer, getAnswerByQuestionId, getAnswerByUserId,} from '../controllers/posts/index.js';
+import { addAnswer, deleteAnswer, editAnswer, getAnswerByQuestionId, getAnswerByUserId, voteAnswer,} from '../controllers/posts/index.js';
 
 const router = Router();
 
@@ -9,5 +9,7 @@ router.patch('/edit', editAnswer);
 router.delete('/delete/:id', deleteAnswer);
 router.get('/question/:questionId', getAnswerByQuestionId);
 router.get('/:userId', getAnswerByUserId);
+router.post('/vote', voteAnswer);
+
 
 export default router

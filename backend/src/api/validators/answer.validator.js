@@ -18,3 +18,11 @@ export function validateEditAnswerRequest(body) {
   });
   return schema.validate(body);
 }
+
+export function validateVoteAnswerRequest(body) {
+  const schema = Joi.object({
+    answerId :Joi.string().min(1).max(40).required(),
+    voteType: Joi.string().valid('upvote', 'downvote').required(),
+  });
+  return schema.validate(body);
+}
