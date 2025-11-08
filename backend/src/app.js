@@ -11,14 +11,7 @@ loader(app);
 
 const server = http.createServer(app)
 
-const io= new Server(server,  {
-  cors: {
-    origin: "http://localhost:4200", // Set to your front-end origin
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],  // Methods allowed
-    allowedHeaders: ["my-custom-header"],
-    credentials: true
-  }
-})
+const io= new Server(server)
 
 connectSocket(io);
 

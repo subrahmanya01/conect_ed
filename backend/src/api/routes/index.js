@@ -24,5 +24,8 @@ router.use('/friend', friend);
 router.use('/search', search);
 router.use('/chat', chat);
 router.use('/notification',notification);
+router.get('/', (req, res) => {
+  res.send('API is working properly');
+});
 
 export default router;
