@@ -46,12 +46,14 @@
                                      <span class="material-symbols-outlined" (click)="shareContent()">
                                         share
                                     </span>
-                                    <span class="material-symbols-outlined">
-                                        edit
-                                    </span>
-                                    <span class="material-symbols-outlined">
-                                        delete
-                                    </span>
+                                    @if(isQuestionAskedByCurrentUser()) {
+                                        <span class="material-symbols-outlined">
+                                            edit
+                                        </span>
+                                        <span class="material-symbols-outlined" data-bs-toggle="modal" data-bs-target="#deleteQuestionModal">
+                                            delete
+                                        </span>
+                                    }
                                 </div>
                             </div>
 
@@ -113,12 +115,14 @@
                                     <span class="material-symbols-outlined" (click)="shareContent()">
                                         share
                                     </span>
-                                    <span class="material-symbols-outlined" data-bs-toggle="modal" data-bs-target="#editModal" (click)="setSelectedAnswer(answer)">
-                                        edit
-                                    </span>
-                                    <span class="material-symbols-outlined" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal" (click)="setSelectedAnswer(answer)">
-                                        delete
-                                    </span>
+                                    @if(isAsnweredByCurrentUser(answer)) {
+                                        <span class="material-symbols-outlined" data-bs-toggle="modal" data-bs-target="#editModal" (click)="setSelectedAnswer(answer)">
+                                            edit
+                                        </span>
+                                        <span class="material-symbols-outlined" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal" (click)="setSelectedAnswer(answer)">
+                                            delete
+                                        </span>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -190,6 +194,26 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-primary" (click)="editAnswer()" data-bs-dismiss="modal" [disabled]="isEditAnswerSaveButtonDisabled()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deleteQuestionModal" tabindex="-1" aria-labelledby="deleteQuestionModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title d-flex align-center justify-content-center" id="deleteQuestionModalLabel"><span class="material-symbols-outlined mr-3">delete</span> Delete Question</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Do you really want to delete this question?
+        <br>
+        <span class="q-delete-note"><b>Note:</b> This action cannot be undone. All associated answers will also be deleted.</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

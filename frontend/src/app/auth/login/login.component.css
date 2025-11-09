@@ -31,7 +31,85 @@
 /* --- Login Box (The White Card) --- */
 .login-box {
   width: 100%;
-  max-width: 30vw; /* Constrain the card width */
+  max-width: 400px; /* Constrain the card width */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .login-page-container {
+    padding: 15px;
+  }
+
+  .app-brand {
+    margin-bottom: 20px;
+  }
+
+  .app-brand svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .app-name {
+    font-size: 1.8rem;
+  }
+
+  .login-box {
+    max-width: 90%; /* Wider on smaller screens */
+  }
+
+  .login-form-card {
+    padding: 30px;
+  }
+
+  .main-title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .form-label {
+    font-size: 0.85rem;
+  }
+
+  .form-control {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .login-btn {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .signup-prompt {
+    margin-top: 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form-card {
+    padding: 20px;
+  }
+
+  .main-title {
+    font-size: 1.3rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .app-brand svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .app-name {
+    font-size: 1.5rem;
+  }
 }
 
 .login-form-card {

@@ -17,13 +17,13 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
 
 const routes: Routes = [
   {
-    path:'',
-    component: OverviewComponent,
-    canActivate: [AuthGuard]
+    path:"",
+    component:LandingPageComponent,
   },
   {
-    path:"home",
-    component:LandingPageComponent,
+    path:'home',
+    component: OverviewComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:"login",
@@ -38,6 +38,7 @@ const routes: Routes = [
   {
     path:"ask-question",
     component: AddQuestionComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:"answer/:id",

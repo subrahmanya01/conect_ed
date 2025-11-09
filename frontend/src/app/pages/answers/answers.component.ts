@@ -157,6 +157,14 @@ export class AnswersComponent implements OnInit{
     return answer.votes??0;
   }
 
+  isAsnweredByCurrentUser(answer: AnswerModel): boolean {
+    return answer.createdBy._id === this.userService.getUserId();
+  }
+
+  isQuestionAskedByCurrentUser(): boolean {
+    return this.question.createdBy._id === this.userService.getUserId();
+  }
+
   setSelectedAnswer(answer: AnswerModel) {
     this.currentlySelectedQuestionForEdit = answer;
     this.editAnswerContent = answer.content;

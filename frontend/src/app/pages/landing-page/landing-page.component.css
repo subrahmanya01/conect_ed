@@ -142,18 +142,12 @@ section {
   overflow: hidden;
 }
 
-.hero-image .gradient-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+.hero-image .gradient-overlay img {
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  object-fit: cover; 
 }
 
-
-/* --- 2. Features Section --- */
 .features-section {
   background-color: #fcfcfc;
 }
@@ -318,6 +312,11 @@ section {
   to { opacity: 1; transform: translateX(0); }
 }
 
+@keyframes fadeInScaleMobile {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 /* Applying animations to all elements with this class */
 /* Note: For professional Angular apps, consider using the official @angular/animations module for scroll-based animations. */
 .animate-fade-in-up {
@@ -362,6 +361,8 @@ section {
     width: 100%;
     max-width: 450px;
     height: 300px;
+    animation: fadeInScaleMobile 0.8s ease-out forwards; /* Apply new animation */
+    animation-delay: 0.8s;
   }
 }
 

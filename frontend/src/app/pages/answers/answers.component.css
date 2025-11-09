@@ -300,3 +300,10 @@ h2 {
 {
     font-size: 10px !important;
 }
+.q-delete-note
+{
+    color: #052b72;
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+}
