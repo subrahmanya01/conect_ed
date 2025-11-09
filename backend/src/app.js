@@ -7,6 +7,8 @@ import { connectSocket } from './utils/socket.js';
 
 const app = express();
 
+app.set('base-url', '/api');
+
 loader(app);
 
 const server = http.createServer(app)
