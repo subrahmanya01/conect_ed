@@ -1,3 +1,3 @@
 export const globalConstants = {
-  applicationName : "QA Platform"
+  applicationName : "ConnectEd"
 }

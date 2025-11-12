@@ -1,16 +1,13 @@
-/* --- Page Container & Layout --- */
 .login-page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 80vh;
-  background-color: #f7f9fc; /* Light background matching the image */
+  background-color: #f7f9fc; 
   font-family: Arial, sans-serif;
-  padding: 20px;
 }
 
-/* --- App Brand (Logo and Name) --- */
 .app-brand {
   display: flex;
   align-items: center;
@@ -28,13 +25,11 @@
   color: #2c3e50;
 }
 
-/* --- Login Box (The White Card) --- */
 .login-box {
   width: 100%;
-  max-width: 400px; /* Constrain the card width */
+  max-width: 400px; 
 }
 
-/* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
   .login-page-container {
     padding: 15px;
@@ -54,7 +49,7 @@
   }
 
   .login-box {
-    max-width: 90%; /* Wider on smaller screens */
+    max-width: 90%;
   }
 
   .login-form-card {
@@ -116,11 +111,10 @@
   background-color: #ffffff;
   padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft shadow */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
   border: 1px solid #e0e0e0;
 }
 
-/* --- Header Text --- */
 .welcome-header {
   text-align: center;
   margin-bottom: 30px;
@@ -139,7 +133,6 @@
   margin: 0;
 }
 
-/* --- Form Elements --- */
 .form-group {
   margin-bottom: 20px;
 }
@@ -158,7 +151,7 @@
   border: 1px solid #dcdfe6;
   border-radius: 6px;
   font-size: 1rem;
-  box-sizing: border-box; /* Include padding in width */
+  box-sizing: border-box;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -168,9 +161,8 @@
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
 
-/* Password Row Layout */
 .password-group {
-  margin-bottom: 30px; /* Extra space before button */
+  margin-bottom: 30px; 
 }
 
 .password-label-row {
@@ -191,11 +183,10 @@
   text-decoration: underline;
 }
 
-/* --- Button --- */
 .login-btn {
   width: 100%;
   padding: 12px;
-  background-color: #589af7; /* Light blue button color from image */
+  background-color: #589af7; 
   color: #ffffff;
   border: none;
   border-radius: 6px;
@@ -210,18 +201,16 @@
 }
 
 .login-btn:disabled {
-  background-color: #a4c8fa; /* Lighter shade when disabled */
+  background-color: #a4c8fa; 
   cursor: not-allowed;
 }
 
-/* --- Error Messages --- */
 .error {
   color: #e74c3c;
   font-size: 0.8rem;
   margin-top: 4px;
 }
 
-/* --- Sign Up Prompt --- */
 .signup-prompt {
   margin-top: 25px;
   font-size: 0.95rem;
