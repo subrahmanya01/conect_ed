@@ -1,5 +1,3 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { OverviewComponent } from './pages/overview/overview.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -13,9 +11,11 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { AddQuestionComponent } from './pages/add-question/add-question.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { CareersComponent } from './pages/careers/careers.component';
+import { Routes } from '@angular/router';
 
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path:"",
     component:LandingPageComponent,
@@ -61,6 +61,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path:"careers",
+    component:CareersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path:"about-us",
     component:AboutUsComponent,
     canActivate: [AuthGuard]
@@ -71,11 +76,3 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    scrollPositionRestoration: 'top'
-  })],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }

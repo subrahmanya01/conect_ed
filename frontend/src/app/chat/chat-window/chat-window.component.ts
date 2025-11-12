@@ -1,3 +1,4 @@
+import { CommonModule, DatePipe } from '@angular/common';
 import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddChatModel, ChatModel } from 'src/app/interfaces/chat';
@@ -8,9 +9,10 @@ import { UserService } from 'src/app/services/user.service';
 
 @Component({
     selector: 'app-chat-window',
+    imports: [CommonModule, DatePipe],
     templateUrl: './chat-window.component.html',
     styleUrls: ['./chat-window.component.css'],
-    standalone: false
+    standalone: true
 })
 export class ChatWindowComponent implements OnInit, AfterViewChecked{
   chatUsers: UserModel[] = [];

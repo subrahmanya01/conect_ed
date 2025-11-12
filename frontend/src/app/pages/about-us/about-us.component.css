@@ -1,0 +1,262 @@
+/* --- Keyframe Animations --- */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    70% {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.cta-content > h2
+{
+    color: white;
+}
+/* --- General Styling & Reset --- */
+.about-us-container {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section {
+    padding: 40px 20px;
+    text-align: center;
+    /* Apply base fade-in to all major sections */
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* --- Header Section (Dark Background) --- */
+.header-section {
+    background-color: #3498db;
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    /* Dot pattern and gradient */
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1%),
+        linear-gradient(135deg, #006680, #3498db);
+    background-size: 30px 30px, auto; 
+    animation: none; /* Do not fade-in the header */
+}
+
+.header-content {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.header-content h1 strong {
+    font-weight: 700;
+}
+
+.header-content p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+}
+
+/* --- Mission & Vision Section --- */
+.mv-content-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.mv-card {
+    flex: 1;
+    padding: 20px;
+    border-left: 3px solid #006680;
+    border-radius: 4px;
+}
+
+.mv-card h3 {
+    text-align: left;
+    color: #006680;
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+}
+
+/* --- Core Values Section --- */
+.core-values-section {
+    background-color: #f9f9f9;
+}
+
+.values-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.value-card {
+    flex: 1 1 200px;
+    max-width: 250px;
+    background: white;
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    /* Hover Transition */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+    /* Animation: Lift and enhance shadow */
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.icon-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background-color: #e6f5ff;
+    color: #006680;
+    font-size: 1.5rem;
+    border: 1px solid #cceeff;
+}
+
+/* --- Meet the Team Section --- */
+.team-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.team-member-card {
+    text-align: center;
+    width: 250px;
+    padding: 20px;
+    border-radius: 8px;
+    /* Hover Transition */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.team-member-card:hover {
+    /* Animation: Slight background highlight and subtle lift on hover */
+    background-color: #fafafa;
+    transform: translateY(-2px);
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 0 0 5px #f0f0f0;
+}
+
+/* --- CTA Section (Call to Action) --- */
+.cta-section {
+    background-color: #3498db;
+    color: white;
+    padding: 60px 20px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.cta-button {
+    background-color: white;
+    color: #3498db;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    /* Hover Transition */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    /* Apply Keyframe Animation: Subtle pulse */
+    animation: pulse 2s infinite;
+}
+
+.cta-button:hover {
+    /* Hover Animation */
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Pause the continuous pulse animation on hover */
+    animation-play-state: paused;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 2rem;
+    }
+    
+    .mv-content-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mv-card {
+        padding: 15px;
+        border-left: none;
+        border-bottom: 3px solid #006680;
+    }
+
+    .mv-card h3 {
+        text-align: center;
+    }
+
+    .values-wrapper {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .value-card {
+        max-width: 90%;
+    }
+    
+    .team-member-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}

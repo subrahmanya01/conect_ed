@@ -1,0 +1,67 @@
+<div class="page-container">
+  
+  <section class="top-hero-section fade-in"> <h1 class="main-heading">Forge the Future with Us.</h1>
+    <p class="main-subtext">Our greatest openings aren't jobs—they're opportunities. Our platform is built by its community, and we want you to be a part of it.</p>
+    <a href="{{repositoryUrl}}" target="_blank" class="primary-button">Explore Our Repository</a>
+  </section>
+
+  <section class="content-section fade-in"> <h2 class="section-heading">We're Built on Collaboration, Not Resumes.</h2>
+    <p class="section-subtext-slim">We believe the best ideas come from a community dedicated to a shared goal. Every line of code, every suggestion, and every bug report helps shape the platform. Join us in cultivating the future of knowledge sharing, one contribution at a time.</p>
+
+    <div class="cards-grid">
+      <div class="card" *ngFor="let card of collaborationCards">
+        <div class="card-icon-container">
+          <span class="material-symbols-outlined card-icon" aria-hidden="true">
+            {{ card.icon }}
+          </span>
+        </div>
+        <h3 class="card-title">{{ card.title }}</h3>
+        <p class="card-description">{{ card.description }}</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section fade-in"> <h2 class="section-heading">How You Can Build with Us</h2>
+    
+    <div class="steps-list">
+      <ng-container *ngFor="let step of buildSteps; let i = index">
+        <div class="step-item">
+          <div class="step-icon-wrapper">
+            <span class="material-symbols-outlined step-icon" aria-hidden="true">
+              {{ step.icon }}
+            </span>
+          </div>
+          <div class="step-content">
+            <div class="step-title">
+              <span class="step-number">Step {{ step.stepNumber }}:</span> {{ step.title }}
+            </div>
+            <p class="step-description">{{ step.description }}</p>
+          </div>
+        </div>
+        @if(i < buildSteps.length - 1)
+        {
+            <div class="step-separator"></div>
+        }
+      </ng-container>
+    </div>
+  </section>
+  
+  <section class="content-section fade-in"> <h2 class="section-heading">Meet the Forgers</h2>
+    <p class="section-subtext-slim">Our platform is powered by active community developers, designers, and thinkers. Here are just a few of the amazing people who have helped forge our path.</p>
+    
+    <div class="forgers-profile-row">
+      <div class="profile-placeholder"><img src="https://avatar.iran.liara.run/public" alt="avatar"></div>
+      <div class="profile-placeholder"><img src="https://avatar.iran.liara.run/public" alt="avatar"></div>
+      <div class="profile-placeholder"><img src="https://avatar.iran.liara.run/public" alt="avatar"></div>
+      <div class="profile-placeholder"><img src="https://avatar.iran.liara.run/public" alt="avatar"></div>
+      <div class="profile-placeholder"><img src="https://avatar.iran.liara.run/public" alt="avatar"></div>
+      <div class="profile-placeholder"><img src="https://avatar.iran.liara.run/public" alt="avatar"></div>
+    </div>
+  </section>
+  
+  <section class="ready-to-start-section fade-in"> <h2 class="section-heading">Ready to make your mark?</h2>
+    <p class="main-subtext">Join a community of builders, problem solvers, and innovators. Your next great contribution is just a click away.</p>
+    <a href="{{repositoryUrl}}" target="_blank" class="primary-button">Visit Our Public Repository</a>
+  </section>
+  
+</div>

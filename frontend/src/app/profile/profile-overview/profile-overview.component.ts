@@ -1,3 +1,4 @@
+import { CommonModule, DecimalPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AnswerModel } from 'src/app/interfaces/answers';
@@ -14,9 +15,10 @@ import { UserService } from 'src/app/services/user.service';
 
 @Component({
     selector: 'app-profile-overview',
+    imports: [DecimalPipe, CommonModule],
     templateUrl: './profile-overview.component.html',
     styleUrls: ['./profile-overview.component.css'],
-    standalone: false
+    standalone: true
 })
 export class ProfileOverviewComponent implements OnInit {
   userProfile : UserModel = {} as UserModel;

@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
-
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { Router } from '@angular/router';
 import { NotificationModel } from 'src/app/interfaces/chat';
@@ -9,12 +8,15 @@ import { NotificationService } from 'src/app/services/notification.service';
 import { QuestionService } from 'src/app/services/question.service';
 import { SocketService } from 'src/app/services/socket.service';
 import { UserService } from 'src/app/services/user.service';
+import { CommonModule } from '@angular/common';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @Component({
     selector: 'app-add-question',
+    imports: [CommonModule, ReactiveFormsModule, FormsModule, CKEditorModule],
     templateUrl: './add-question.component.html',
     styleUrls: ['./add-question.component.css'],
-    standalone: false
+    standalone: true
 })
 export class AddQuestionComponent implements OnInit {
   questionForm!: FormGroup;
