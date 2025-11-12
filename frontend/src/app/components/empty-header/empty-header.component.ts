@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { globalConstants } from 'src/app/constants/global-constant';
-import { settings } from 'src/assets/appsettings';
 
 @Component({
     selector: 'app-empty-header',
+    imports: [RouterModule],
     templateUrl: './empty-header.component.html',
     styleUrls: ['./empty-header.component.css'],
-    standalone: false
+    standalone: true
 })
 export class EmptyHeaderComponent {
  constants: any =globalConstants;

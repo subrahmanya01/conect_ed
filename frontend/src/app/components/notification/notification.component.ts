@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationModel } from 'src/app/interfaces/chat';
@@ -7,9 +8,10 @@ import { UserService } from 'src/app/services/user.service';
 
 @Component({
     selector: 'app-notification',
+    imports: [CommonModule],
     templateUrl: './notification.component.html',
     styleUrls: ['./notification.component.css'],
-    standalone: false
+    standalone: true
 })
 export class NotificationComponent implements OnInit{
   notifications: NotificationModel[] = [];

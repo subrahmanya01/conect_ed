@@ -1,5 +1,4 @@
 export const settings ={
-    BACKEND_BASE_URL: "http://localhost:3000/api",
-    SOCKET_URL : "http://localhost:3000",
+    APP_NAME : 'ConectEd',
     QUESTION_PAGE_SIZE : 5
 }

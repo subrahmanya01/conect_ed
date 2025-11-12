@@ -1,13 +1,18 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { globalConstants } from 'src/app/constants/global-constant';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
+import { NotificationComponent } from '../notification/notification.component';
+import { CommonModule } from '@angular/common';
+import { LOCALSTORAGE_CONSTANTS } from 'src/app/constants/localstorage-constant';
+
 @Component({
     selector: 'app-header',
+    imports: [NotificationComponent, CommonModule, RouterModule],
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.css'],
-    standalone: false
+    standalone: true
 })
 export class HeaderComponent implements OnInit, DoCheck {
   public constants : any = {};
@@ -17,31 +22,28 @@ export class HeaderComponent implements OnInit, DoCheck {
   ngDoCheck(): void {
     this.setUserInfo();
   }
+
   ngOnInit(): void {
     this.constants = globalConstants;
   }
 
-  navigateToChat()
-  {
+  navigateToChat() {
     this.router.navigateByUrl("/chat")
   }
 
-  navigateToAddQuestion()
-  {
+  navigateToAddQuestion() {
     this.router.navigateByUrl("/ask-question")
   }
 
-  setUserInfo()
-  {
-    if(!localStorage["LOGED_IN_USER"]) return;
-    let user = JSON.parse(localStorage["LOGED_IN_USER"])
+  setUserInfo(){
+    if(!localStorage[LOCALSTORAGE_CONSTANTS.LOGGED_IN_USER]) return;
+    let user = JSON.parse(localStorage[LOCALSTORAGE_CONSTANTS.LOGGED_IN_USER])
     this.userService.userId = user._id;
     this.userService.userName = user.firstName+ " "+ user.lastName;
     this.userService.email = user.email;
   }
 
-  navigateToProfile()
-  {
+  navigateToProfile() {
     this.router.navigateByUrl(`/profile/${this.userService.getUserId()}`)
   }
 
@@ -53,5 +55,4 @@ export class HeaderComponent implements OnInit, DoCheck {
   isActive(route: string): boolean {
     return this.router.url === route;
   }
-
 }

@@ -1,15 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { settings } from 'src/assets/appsettings';
 import { ApiResponseModel } from '../interfaces/api-response-model';
 import { AddNotificationModel } from '../interfaces/notification';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationService {
-  baseurl: string  = settings.BACKEND_BASE_URL;
+  baseurl: string  = environment.apiBaseUrl;
 
   constructor(private httpClient : HttpClient) {
    }

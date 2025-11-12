@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { settings } from 'src/assets/appsettings';
 import { ApiResponseModel } from '../interfaces/api-response-model';
 import { Observable } from 'rxjs';
 import { AddChatModel } from '../interfaces/chat';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
 
-  baseUrl : string = settings.BACKEND_BASE_URL;
+  baseUrl : string = environment.apiBaseUrl;
   
   constructor(private httpClient : HttpClient) { }
 

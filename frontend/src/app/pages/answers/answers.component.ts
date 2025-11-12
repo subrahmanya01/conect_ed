@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { SpinnerComponent } from 'src/app/component/spinner/spinner.component';
+import { SpinnerComponent } from 'src/app/components/spinner/spinner.component';
 import { AddAnswerModel, AnswerModel, EditAnswerModel } from 'src/app/interfaces/answers';
 import { ApiResponseModel } from 'src/app/interfaces/api-response-model';
 import { NotificationModel } from 'src/app/interfaces/chat';

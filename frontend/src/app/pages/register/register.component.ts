@@ -1,16 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiResponseModel } from 'src/app/interfaces/api-response-model';
 import { RegisterModel } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
 import { AbstractControl, ValidatorFn } from '@angular/forms'; // Import necessary types
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-register',
+    imports: [CommonModule, FormsModule, ReactiveFormsModule],
     templateUrl: './register.component.html',
     styleUrls: ['./register.component.css'],
-    standalone: false
+    standalone: true
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;

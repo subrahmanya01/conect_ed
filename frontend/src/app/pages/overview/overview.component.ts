@@ -1,16 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ApiResponseModel } from 'src/app/interfaces/api-response-model';
 import { QuestionModel } from 'src/app/interfaces/question';
 import { QuestionService } from 'src/app/services/question.service';
 import { UserService } from 'src/app/services/user.service';
-import { settings } from 'src/assets/appsettings';
 
 @Component({
     selector: 'app-overview',
+    imports: [RouterModule, CommonModule],
     templateUrl: './overview.component.html',
     styleUrls: ['./overview.component.css'],
-    standalone: false
+    standalone: true
 })
 export class OverviewComponent implements OnInit {
   //public questions : QuestionModel[] = []

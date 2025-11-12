@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { settings } from 'src/assets/appsettings';
 import { ApiResponseModel } from '../interfaces/api-response-model';
 import { LoginModel, RegisterModel, UserModel } from '../interfaces/user';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class UserService {
   loggedInUser: UserModel = {} as UserModel;
   email : string = "";
 
-  baseUrl : string = settings.BACKEND_BASE_URL;
+  baseUrl : string = environment.apiBaseUrl;
   constructor(private httpClient: HttpClient) { }
 
   public getUserId()

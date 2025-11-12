@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OverviewComponent } from './pages/overview/overview.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 import { ProfileOverviewComponent } from './profile/profile-overview/profile-overview.component';
 import { AnswersComponent } from './pages/answers/answers.component';
 import { ChatWindowComponent } from './chat/chat-window/chat-window.component';
-import { AboutUsComponent } from './shared/about-us/about-us.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { AuthGuard } from './guards/auth.guard';
 import { DActivateLoginGuard } from './guards/d-activate-login.guard';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';

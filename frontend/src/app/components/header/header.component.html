@@ -1,18 +1,18 @@
 <nav class="navbar">
     <div class="container">
         <div class="navbar-left">
-            <a class="navbar-brand" routerLink="/">
+            <a class="navbar-brand" routerLink="/home">
                 <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <g fill="#4A90E2" transform="translate(50,50)">
-                        <rect x="-8" y="-35" width="16" height="70" rx="2"/>
-                        <rect x="-8" y="-35" width="16" height="70" rx="2" transform="rotate(60)"/>
-                        <rect x="-8" y="-35" width="16" height="70" rx="2" transform="rotate(-60)"/>
+                        <rect x="-8" y="-35" width="16" height="70" rx="2" />
+                        <rect x="-8" y="-35" width="16" height="70" rx="2" transform="rotate(60)" />
+                        <rect x="-8" y="-35" width="16" height="70" rx="2" transform="rotate(-60)" />
                     </g>
                 </svg>
                 <span class="app-name">ConnectEd</span>
             </a>
             <div class="nav-links">
-                <a routerLink="/" class="nav-link" [class.active]="isActive('/')">Home</a>
+                <a routerLink="/home" class="nav-link" [class.active]="isActive('/')">Home</a>
             </div>
         </div>
 
@@ -29,7 +29,8 @@
             </button>
 
             <div class="nav-icons">
-                <div class="header-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                <div class="header-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                    aria-controls="offcanvasExample">
                     <i class="far fa-bell"></i>
                     <span class="badge" *ngIf="notificationComponent.unreadMessageCount">
                         {{notificationComponent.unreadMessageCount}}
@@ -68,4 +69,3 @@
 </nav>
 
 <app-notification #notificationComponent></app-notification>
-  

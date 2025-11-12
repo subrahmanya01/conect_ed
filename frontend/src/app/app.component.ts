@@ -2,13 +2,18 @@ import { Component, DoCheck, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { SocketService } from './services/socket.service';
 import { SharedDataService } from './services/shared-data.service';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { EmptyHeaderComponent } from './components/empty-header/empty-header.component';
 
 @Component({
     selector: 'app-root',
+    imports: [CommonModule, HeaderComponent, FooterComponent, EmptyHeaderComponent, RouterModule],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    standalone: false
+    standalone: true
 })
 export class AppComponent implements OnInit, DoCheck {
   title = 'linked-in-reva-frontend';

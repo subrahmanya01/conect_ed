@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { settings } from 'src/assets/appsettings';
 import { ApiResponseModel } from '../interfaces/api-response-model';
 import { UserService } from './user.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ import { UserService } from './user.service';
 export class FriendService {
 
 
-  baseUrl : string = settings.BACKEND_BASE_URL;
+  baseUrl : string = environment.apiBaseUrl;
   constructor(private httpClient: HttpClient, private userService: UserService) { }
 
   public followUser(userId: string):Observable<ApiResponseModel>

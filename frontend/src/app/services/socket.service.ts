@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import io from 'socket.io-client';
-import { settings } from 'src/assets/appsettings';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SocketService {
   socket: any;
-  baseURL:string= settings.SOCKET_URL;
+  baseURL:string= environment.socketConnetionBaseUrl;
   constructor() {
     this.socket = io(this.baseURL);
    }

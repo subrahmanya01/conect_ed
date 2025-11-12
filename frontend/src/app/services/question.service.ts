@@ -4,13 +4,14 @@ import { Observable } from 'rxjs';
 import { ApiResponseModel } from '../interfaces/api-response-model';
 import { settings } from 'src/assets/appsettings';
 import { AddQuestionModel, EditQuestionModel } from '../interfaces/question';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuestionService {
 
-  baseurl: string  = settings.BACKEND_BASE_URL;
+  baseurl: string  = environment.apiBaseUrl;
   pageSize : number = settings.QUESTION_PAGE_SIZE;
 
   constructor(private httpClient : HttpClient) {
