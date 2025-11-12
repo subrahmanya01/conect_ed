@@ -12,35 +12,28 @@ export class AnswerService {
   baseUrl : string = settings.BACKEND_BASE_URL;
   constructor(private httpClient : HttpClient) { }
 
-  public getAnswerByQuestionId(questionId : string):Observable<ApiResponseModel>
-  {
+  public getAnswerByQuestionId(questionId : string):Observable<ApiResponseModel> {
     return this.httpClient.get<ApiResponseModel>(this.baseUrl + `/answer/question/${questionId}`);
   }
 
-  public getAnswerByUserId(userId : string):Observable<ApiResponseModel>
-  {
+  public getAnswerByUserId(userId : string):Observable<ApiResponseModel> {
     return this.httpClient.get<ApiResponseModel>(this.baseUrl + `/answer/${userId}`);
   }
 
-  public addAnswer(newAnswer : AddAnswerModel):Observable<ApiResponseModel>
-  {
+  public addAnswer(newAnswer : AddAnswerModel):Observable<ApiResponseModel> {
     return this.httpClient.post<ApiResponseModel>(this.baseUrl + `/answer/add`, newAnswer);
   }
 
-  public editAnswer(editAnswer : EditAnswerModel):Observable<ApiResponseModel>
-  {
+  public editAnswer(editAnswer : EditAnswerModel):Observable<ApiResponseModel> {
     return this.httpClient.patch<ApiResponseModel>(this.baseUrl + `/answer/edit`, editAnswer);
   }
 
-  public deleteAnswer(answerId : string):Observable<any>
-  {
+  public deleteAnswer(answerId : string):Observable<any> {
     return this.httpClient.delete(this.baseUrl + `/answer/delete/${answerId}`);
   }
 
-  public voteAnswer(answerId : string, isUpvote : boolean):Observable<any>
-  {
+  public voteAnswer(answerId : string, isUpvote : boolean):Observable<any> {
     const request = { answerId, voteType: isUpvote ? 'upvote' : 'downvote' };
     return this.httpClient.post<ApiResponseModel>(this.baseUrl + `/answer/vote`, request);
   }
-
 }
