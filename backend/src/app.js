@@ -6,17 +6,18 @@ import {Server} from 'socket.io';
 import { connectSocket } from './utils/socket.js';
 
 const app = express();
-
+app.use(cors({ origin: "*" }));
 app.set('base-url', '/api');
 
 loader(app);
+
 
 const server = http.createServer(app)
 
 const io= new Server(server, {
   cors: {
     origin: "*", 
-    methods: ["GET", "POST"]
+    methods: ["GET", "POST", "PUT", "DELETE"]
   }
 })
 

@@ -1,9 +1,10 @@
 import { CommonModule } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
+import { RouterModule } from "@angular/router";
 
 @Component({
     selector: 'app-landing-page',
-    imports: [CommonModule],
+    imports: [CommonModule, RouterModule],
     templateUrl: './landing-page.component.html',
     styleUrls: ['./landing-page.component.css'],
     standalone: true
