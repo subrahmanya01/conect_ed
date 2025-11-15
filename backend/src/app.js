@@ -4,6 +4,7 @@ import { port } from './config/index.js';
 import loader from './loaders/index.js';
 import {Server} from 'socket.io';
 import { connectSocket } from './utils/socket.js';
+import cors from "cors";
 
 const allowedOrigins = [
   "http://localhost:4200",
