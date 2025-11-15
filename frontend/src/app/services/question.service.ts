@@ -29,7 +29,7 @@ export class QuestionService {
 
   public getQuestionByQuestionId(questionId: string) : Observable<ApiResponseModel>
   {
-    return this.httpClient.get<ApiResponseModel>(this.baseurl +`//question/get/${questionId}`);
+    return this.httpClient.get<ApiResponseModel>(this.baseurl +`/question/get/${questionId}`);
   }
 
   public getQuestionsForPage(pageNumber : number) : Observable<ApiResponseModel>

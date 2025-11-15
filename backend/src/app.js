@@ -5,18 +5,22 @@ import loader from './loaders/index.js';
 import {Server} from 'socket.io';
 import { connectSocket } from './utils/socket.js';
 
+const allowedOrigins = [
+  "http://localhost:4200",
+  "https://conect-ed.vercel.app"
+];
+
 const app = express();
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: allowedOrigins }));
 app.set('base-url', '/api');
 
 loader(app);
-
 
 const server = http.createServer(app)
 
 const io= new Server(server, {
   cors: {
-    origin: "*", 
+    origin: [...allowedOrigins], 
     methods: ["GET", "POST", "PUT", "DELETE"]
   }
 })
